@@ -1,1 +1,665 @@
-hola 2
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comercial M&P – Comercial MyP</title> 
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js CDN -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#026363',      /* color logo */
+          primaryDark: '#014d4d',  /* un tono más oscuro  */
+          primaryLight: '#0d8c8c'  /* un tono más claro */
+        }
+      }
+    }
+  }
+</script>
+
+
+</head>
+<body class="font-sans text-gray-800">
+
+<header class="bg-white shadow-md fixed w-full z-10">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Logo más grande -->
+    <a href="index.html">
+      <img src="img/logo-comercialmyp.png" alt="Logo M&P" class="h-16">
+    </a>
+
+    <!-- Teléfonos en desktop -->
+    <div class="hidden md:flex space-x-6 text-gray-700">
+      <a href="tel:56225529212" class="flex items-center hover:text-primaryLight">
+        <!-- Heroicon: phone -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  class="h-5 w-5 mr-1" viewBox="0 0 50 50">
+<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 18.048828 11.035156 C 16.003504 10.946776 14.45113 11.723922 13.474609 12.658203 C 12.986349 13.125343 12.633832 13.625179 12.392578 14.091797 C 12.151324 14.558415 11.998047 14.943108 11.998047 15.443359 C 11.998047 15.398799 11.987059 15.632684 11.980469 15.904297 C 11.973869 16.17591 11.97507 16.542045 12 16.984375 C 12.04996 17.869036 12.199897 19.065677 12.597656 20.484375 C 13.393174 23.321771 15.184446 27.043821 19.070312 30.929688 C 22.95618 34.815554 26.678014 36.606575 29.515625 37.402344 C 30.93443 37.800228 32.130881 37.949937 33.015625 38 C 33.457997 38.02503 33.822105 38.026091 34.09375 38.019531 C 34.365395 38.012931 34.601049 38.001953 34.556641 38.001953 C 35.056892 38.001953 35.441585 37.848676 35.908203 37.607422 C 36.374821 37.366168 36.874657 37.013651 37.341797 36.525391 C 38.276078 35.54887 39.053222 33.996496 38.964844 31.951172 C 38.922907 30.975693 38.381316 30.111858 37.582031 29.599609 C 36.96435 29.203814 36.005458 28.589415 34.753906 27.789062 C 33.301811 26.861299 31.44451 26.795029 29.929688 27.625 L 30.015625 27.582031 L 28.837891 28.087891 L 28.751953 28.148438 C 28.465693 28.349428 28.111154 28.386664 27.789062 28.251953 C 26.886813 27.874649 25.480985 27.133329 24.173828 25.826172 C 22.866671 24.519015 22.125351 23.113186 21.748047 22.210938 C 21.613336 21.888845 21.650568 21.534307 21.851562 21.248047 L 21.912109 21.162109 L 22.417969 19.984375 L 22.375 20.070312 C 23.204764 18.555868 23.140248 16.698619 22.210938 15.246094 C 21.410584 13.994542 20.796186 13.03565 20.400391 12.417969 C 19.888142 11.618684 19.02431 11.077096 18.048828 11.035156 z M 17.962891 13.033203 C 18.243409 13.045263 18.533045 13.209378 18.716797 13.496094 C 19.113001 14.114413 19.727696 15.07377 20.527344 16.324219 C 21.058033 17.153694 21.09533 18.243821 20.621094 19.109375 L 20.597656 19.152344 L 20.115234 20.279297 L 20.214844 20.097656 C 19.623835 20.939396 19.505055 22.032514 19.902344 22.982422 C 20.35304 24.060173 21.214923 25.695392 22.759766 27.240234 C 24.304608 28.785077 25.939827 29.64696 27.017578 30.097656 C 27.967486 30.494945 29.060604 30.376165 29.902344 29.785156 L 29.720703 29.884766 L 30.847656 29.402344 L 30.890625 29.378906 C 31.755801 28.904877 32.845877 28.944375 33.675781 29.474609 L 33.675781 29.472656 C 34.92623 30.272304 35.885587 30.886999 36.503906 31.283203 C 36.790622 31.466955 36.954736 31.756591 36.966797 32.037109 C 37.032417 33.555785 36.504954 34.506599 35.896484 35.142578 C 35.59225 35.460568 35.262335 35.691348 34.990234 35.832031 C 34.718133 35.972715 34.457889 36.001953 34.556641 36.001953 C 34.373232 36.001953 34.276633 36.013981 34.046875 36.019531 C 33.817117 36.025131 33.509144 36.025436 33.128906 36.003906 C 32.368431 35.960876 31.318757 35.831053 30.054688 35.476562 C 27.526547 34.767581 24.137509 33.168759 20.484375 29.515625 C 16.831241 25.862491 15.232169 22.473167 14.523438 19.945312 C 14.169071 18.681386 14.039037 17.631464 13.996094 16.871094 C 13.974624 16.490908 13.974899 16.18286 13.980469 15.953125 C 13.986069 15.72339 13.998047 15.626918 13.998047 15.443359 C 13.998047 15.542109 14.027287 15.281867 14.167969 15.009766 C 14.308652 14.737665 14.539432 14.40775 14.857422 14.103516 C 15.493401 13.495046 16.444215 12.967581 17.962891 13.033203 z"></path>
+</svg>
+        225 529 212
+      </a>
+      <a href="tel:56225528204" class="flex items-center hover:text-primaryLight">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  class="h-5 w-5 mr-1" viewBox="0 0 50 50">
+<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 18.048828 11.035156 C 16.003504 10.946776 14.45113 11.723922 13.474609 12.658203 C 12.986349 13.125343 12.633832 13.625179 12.392578 14.091797 C 12.151324 14.558415 11.998047 14.943108 11.998047 15.443359 C 11.998047 15.398799 11.987059 15.632684 11.980469 15.904297 C 11.973869 16.17591 11.97507 16.542045 12 16.984375 C 12.04996 17.869036 12.199897 19.065677 12.597656 20.484375 C 13.393174 23.321771 15.184446 27.043821 19.070312 30.929688 C 22.95618 34.815554 26.678014 36.606575 29.515625 37.402344 C 30.93443 37.800228 32.130881 37.949937 33.015625 38 C 33.457997 38.02503 33.822105 38.026091 34.09375 38.019531 C 34.365395 38.012931 34.601049 38.001953 34.556641 38.001953 C 35.056892 38.001953 35.441585 37.848676 35.908203 37.607422 C 36.374821 37.366168 36.874657 37.013651 37.341797 36.525391 C 38.276078 35.54887 39.053222 33.996496 38.964844 31.951172 C 38.922907 30.975693 38.381316 30.111858 37.582031 29.599609 C 36.96435 29.203814 36.005458 28.589415 34.753906 27.789062 C 33.301811 26.861299 31.44451 26.795029 29.929688 27.625 L 30.015625 27.582031 L 28.837891 28.087891 L 28.751953 28.148438 C 28.465693 28.349428 28.111154 28.386664 27.789062 28.251953 C 26.886813 27.874649 25.480985 27.133329 24.173828 25.826172 C 22.866671 24.519015 22.125351 23.113186 21.748047 22.210938 C 21.613336 21.888845 21.650568 21.534307 21.851562 21.248047 L 21.912109 21.162109 L 22.417969 19.984375 L 22.375 20.070312 C 23.204764 18.555868 23.140248 16.698619 22.210938 15.246094 C 21.410584 13.994542 20.796186 13.03565 20.400391 12.417969 C 19.888142 11.618684 19.02431 11.077096 18.048828 11.035156 z M 17.962891 13.033203 C 18.243409 13.045263 18.533045 13.209378 18.716797 13.496094 C 19.113001 14.114413 19.727696 15.07377 20.527344 16.324219 C 21.058033 17.153694 21.09533 18.243821 20.621094 19.109375 L 20.597656 19.152344 L 20.115234 20.279297 L 20.214844 20.097656 C 19.623835 20.939396 19.505055 22.032514 19.902344 22.982422 C 20.35304 24.060173 21.214923 25.695392 22.759766 27.240234 C 24.304608 28.785077 25.939827 29.64696 27.017578 30.097656 C 27.967486 30.494945 29.060604 30.376165 29.902344 29.785156 L 29.720703 29.884766 L 30.847656 29.402344 L 30.890625 29.378906 C 31.755801 28.904877 32.845877 28.944375 33.675781 29.474609 L 33.675781 29.472656 C 34.92623 30.272304 35.885587 30.886999 36.503906 31.283203 C 36.790622 31.466955 36.954736 31.756591 36.966797 32.037109 C 37.032417 33.555785 36.504954 34.506599 35.896484 35.142578 C 35.59225 35.460568 35.262335 35.691348 34.990234 35.832031 C 34.718133 35.972715 34.457889 36.001953 34.556641 36.001953 C 34.373232 36.001953 34.276633 36.013981 34.046875 36.019531 C 33.817117 36.025131 33.509144 36.025436 33.128906 36.003906 C 32.368431 35.960876 31.318757 35.831053 30.054688 35.476562 C 27.526547 34.767581 24.137509 33.168759 20.484375 29.515625 C 16.831241 25.862491 15.232169 22.473167 14.523438 19.945312 C 14.169071 18.681386 14.039037 17.631464 13.996094 16.871094 C 13.974624 16.490908 13.974899 16.18286 13.980469 15.953125 C 13.986069 15.72339 13.998047 15.626918 13.998047 15.443359 C 13.998047 15.542109 14.027287 15.281867 14.167969 15.009766 C 14.308652 14.737665 14.539432 14.40775 14.857422 14.103516 C 15.493401 13.495046 16.444215 12.967581 17.962891 13.033203 z"></path>
+</svg>
+        225 528 204
+      </a>
+    </div>
+
+    <!-- Navegación -->
+    <nav x-data="{ open: false }" class="relative">
+      <!-- Botón hamburguesa / cerrar -->
+      <button @click="open = !open"
+              class="md:hidden p-2 text-gray-700 focus:outline-none">
+        <template x-if="!open">
+          <!-- icono hamburguesa -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </template>
+        <template x-if="open">
+          <!-- icono cerrar -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </template>
+      </button>
+
+      <!-- Menú de escritorio -->
+      <ul class="hidden md:flex space-x-6 text-lg">
+        <li><a href="index.html" class="hover:text-primaryLight">Inicio</a></li>
+        <li><a href="nosotros.html" class="hover:text-primaryLight">Nosotros</a></li>
+        <li><a href="servicios.html" class="hover:text-primaryLight">Servicios</a></li>
+        <li><a href="productos.html" class="hover:text-primaryLight">Productos</a></li>
+        <li><a href="contacto.html" class="hover:text-primaryLight">Contacto</a></li>
+      </ul>
+
+      <!-- Panel móvil -->
+      <div x-show="open" x-transition
+           @click.away="open = false"
+           class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden">
+        <ul class="flex flex-col p-4 space-y-2">
+          <li><a href="index.html" class="block px-2 py-1 hover:bg-gray-100 rounded">Inicio</a></li>
+          <li><a href="nosotros.html" class="block px-2 py-1 hover:bg-gray-100 rounded">Nosotros</a></li>
+          <li><a href="servicios.html" class="block px-2 py-1 hover:bg-gray-100 rounded">Servicios</a></li>
+          <li><a href="productos.html" class="block px-2 py-1 hover:bg-gray-100 rounded">Productos</a></li>
+          <li><a href="contacto.html" class="block px-2 py-1 hover:bg-gray-100 rounded">Contacto</a></li>
+        </ul>
+        <div class="border-t mt-2 p-4 space-y-2 text-gray-700">
+          <a href="tel:+56225529212" class="flex items-center hover:text-primaryLight">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  class="h-5 w-5 mr-1" viewBox="0 0 50 50">
+<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 18.048828 11.035156 C 16.003504 10.946776 14.45113 11.723922 13.474609 12.658203 C 12.986349 13.125343 12.633832 13.625179 12.392578 14.091797 C 12.151324 14.558415 11.998047 14.943108 11.998047 15.443359 C 11.998047 15.398799 11.987059 15.632684 11.980469 15.904297 C 11.973869 16.17591 11.97507 16.542045 12 16.984375 C 12.04996 17.869036 12.199897 19.065677 12.597656 20.484375 C 13.393174 23.321771 15.184446 27.043821 19.070312 30.929688 C 22.95618 34.815554 26.678014 36.606575 29.515625 37.402344 C 30.93443 37.800228 32.130881 37.949937 33.015625 38 C 33.457997 38.02503 33.822105 38.026091 34.09375 38.019531 C 34.365395 38.012931 34.601049 38.001953 34.556641 38.001953 C 35.056892 38.001953 35.441585 37.848676 35.908203 37.607422 C 36.374821 37.366168 36.874657 37.013651 37.341797 36.525391 C 38.276078 35.54887 39.053222 33.996496 38.964844 31.951172 C 38.922907 30.975693 38.381316 30.111858 37.582031 29.599609 C 36.96435 29.203814 36.005458 28.589415 34.753906 27.789062 C 33.301811 26.861299 31.44451 26.795029 29.929688 27.625 L 30.015625 27.582031 L 28.837891 28.087891 L 28.751953 28.148438 C 28.465693 28.349428 28.111154 28.386664 27.789062 28.251953 C 26.886813 27.874649 25.480985 27.133329 24.173828 25.826172 C 22.866671 24.519015 22.125351 23.113186 21.748047 22.210938 C 21.613336 21.888845 21.650568 21.534307 21.851562 21.248047 L 21.912109 21.162109 L 22.417969 19.984375 L 22.375 20.070312 C 23.204764 18.555868 23.140248 16.698619 22.210938 15.246094 C 21.410584 13.994542 20.796186 13.03565 20.400391 12.417969 C 19.888142 11.618684 19.02431 11.077096 18.048828 11.035156 z M 17.962891 13.033203 C 18.243409 13.045263 18.533045 13.209378 18.716797 13.496094 C 19.113001 14.114413 19.727696 15.07377 20.527344 16.324219 C 21.058033 17.153694 21.09533 18.243821 20.621094 19.109375 L 20.597656 19.152344 L 20.115234 20.279297 L 20.214844 20.097656 C 19.623835 20.939396 19.505055 22.032514 19.902344 22.982422 C 20.35304 24.060173 21.214923 25.695392 22.759766 27.240234 C 24.304608 28.785077 25.939827 29.64696 27.017578 30.097656 C 27.967486 30.494945 29.060604 30.376165 29.902344 29.785156 L 29.720703 29.884766 L 30.847656 29.402344 L 30.890625 29.378906 C 31.755801 28.904877 32.845877 28.944375 33.675781 29.474609 L 33.675781 29.472656 C 34.92623 30.272304 35.885587 30.886999 36.503906 31.283203 C 36.790622 31.466955 36.954736 31.756591 36.966797 32.037109 C 37.032417 33.555785 36.504954 34.506599 35.896484 35.142578 C 35.59225 35.460568 35.262335 35.691348 34.990234 35.832031 C 34.718133 35.972715 34.457889 36.001953 34.556641 36.001953 C 34.373232 36.001953 34.276633 36.013981 34.046875 36.019531 C 33.817117 36.025131 33.509144 36.025436 33.128906 36.003906 C 32.368431 35.960876 31.318757 35.831053 30.054688 35.476562 C 27.526547 34.767581 24.137509 33.168759 20.484375 29.515625 C 16.831241 25.862491 15.232169 22.473167 14.523438 19.945312 C 14.169071 18.681386 14.039037 17.631464 13.996094 16.871094 C 13.974624 16.490908 13.974899 16.18286 13.980469 15.953125 C 13.986069 15.72339 13.998047 15.626918 13.998047 15.443359 C 13.998047 15.542109 14.027287 15.281867 14.167969 15.009766 C 14.308652 14.737665 14.539432 14.40775 14.857422 14.103516 C 15.493401 13.495046 16.444215 12.967581 17.962891 13.033203 z"></path>
+</svg>
+            225 529 212
+          </a>
+          <a href="tel:+56225528204" class="flex items-center hover:text-primaryLight">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  class="h-5 w-5 mr-1" viewBox="0 0 50 50">
+<path d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 18.048828 11.035156 C 16.003504 10.946776 14.45113 11.723922 13.474609 12.658203 C 12.986349 13.125343 12.633832 13.625179 12.392578 14.091797 C 12.151324 14.558415 11.998047 14.943108 11.998047 15.443359 C 11.998047 15.398799 11.987059 15.632684 11.980469 15.904297 C 11.973869 16.17591 11.97507 16.542045 12 16.984375 C 12.04996 17.869036 12.199897 19.065677 12.597656 20.484375 C 13.393174 23.321771 15.184446 27.043821 19.070312 30.929688 C 22.95618 34.815554 26.678014 36.606575 29.515625 37.402344 C 30.93443 37.800228 32.130881 37.949937 33.015625 38 C 33.457997 38.02503 33.822105 38.026091 34.09375 38.019531 C 34.365395 38.012931 34.601049 38.001953 34.556641 38.001953 C 35.056892 38.001953 35.441585 37.848676 35.908203 37.607422 C 36.374821 37.366168 36.874657 37.013651 37.341797 36.525391 C 38.276078 35.54887 39.053222 33.996496 38.964844 31.951172 C 38.922907 30.975693 38.381316 30.111858 37.582031 29.599609 C 36.96435 29.203814 36.005458 28.589415 34.753906 27.789062 C 33.301811 26.861299 31.44451 26.795029 29.929688 27.625 L 30.015625 27.582031 L 28.837891 28.087891 L 28.751953 28.148438 C 28.465693 28.349428 28.111154 28.386664 27.789062 28.251953 C 26.886813 27.874649 25.480985 27.133329 24.173828 25.826172 C 22.866671 24.519015 22.125351 23.113186 21.748047 22.210938 C 21.613336 21.888845 21.650568 21.534307 21.851562 21.248047 L 21.912109 21.162109 L 22.417969 19.984375 L 22.375 20.070312 C 23.204764 18.555868 23.140248 16.698619 22.210938 15.246094 C 21.410584 13.994542 20.796186 13.03565 20.400391 12.417969 C 19.888142 11.618684 19.02431 11.077096 18.048828 11.035156 z M 17.962891 13.033203 C 18.243409 13.045263 18.533045 13.209378 18.716797 13.496094 C 19.113001 14.114413 19.727696 15.07377 20.527344 16.324219 C 21.058033 17.153694 21.09533 18.243821 20.621094 19.109375 L 20.597656 19.152344 L 20.115234 20.279297 L 20.214844 20.097656 C 19.623835 20.939396 19.505055 22.032514 19.902344 22.982422 C 20.35304 24.060173 21.214923 25.695392 22.759766 27.240234 C 24.304608 28.785077 25.939827 29.64696 27.017578 30.097656 C 27.967486 30.494945 29.060604 30.376165 29.902344 29.785156 L 29.720703 29.884766 L 30.847656 29.402344 L 30.890625 29.378906 C 31.755801 28.904877 32.845877 28.944375 33.675781 29.474609 L 33.675781 29.472656 C 34.92623 30.272304 35.885587 30.886999 36.503906 31.283203 C 36.790622 31.466955 36.954736 31.756591 36.966797 32.037109 C 37.032417 33.555785 36.504954 34.506599 35.896484 35.142578 C 35.59225 35.460568 35.262335 35.691348 34.990234 35.832031 C 34.718133 35.972715 34.457889 36.001953 34.556641 36.001953 C 34.373232 36.001953 34.276633 36.013981 34.046875 36.019531 C 33.817117 36.025131 33.509144 36.025436 33.128906 36.003906 C 32.368431 35.960876 31.318757 35.831053 30.054688 35.476562 C 27.526547 34.767581 24.137509 33.168759 20.484375 29.515625 C 16.831241 25.862491 15.232169 22.473167 14.523438 19.945312 C 14.169071 18.681386 14.039037 17.631464 13.996094 16.871094 C 13.974624 16.490908 13.974899 16.18286 13.980469 15.953125 C 13.986069 15.72339 13.998047 15.626918 13.998047 15.443359 C 13.998047 15.542109 14.027287 15.281867 14.167969 15.009766 C 14.308652 14.737665 14.539432 14.40775 14.857422 14.103516 C 15.493401 13.495046 16.444215 12.967581 17.962891 13.033203 z"></path>
+</svg>
+
+
+            225 528 204
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main ><!-- deja espacio para el header fijo -->
+
+<!-- Hero -->
+<section id="hero" class="relative h-screen w-full overflow-hidden">
+  <!-- Video de fondo -->
+  <video
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="videocomercialmyp.mp4" type="video/mp4" />
+    Tu navegador no soporta vídeo.
+  </video>
+  <!-- Si quieres añadir overlay oscuro, descomenta:
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
+  -->
+</section>
+    
+
+<!-- Quienes Somos -->
+<section id="about" class="py-16 bg-white">
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <!-- Imagen -->
+    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+      <img
+        src="img/quienes.png"
+        alt="Logo Comercial M&P"
+        class="w-full h-auto object-contain shadow-lg rounded-lg"
+      />
+    </div>
+    <!-- Texto -->
+    <div class="w-full md:w-1/2 md:pl-12">
+      <h2 class="text-3xl font-semibold text-gray-900 uppercase">
+        Quienes Somos
+      </h2>
+      <div class="w-24 h-1 bg-teal-600 mt-2 mb-6"></div>
+      <p class="text-gray-700 text-justify space-y-4">
+        Somos una <strong>Empresa</strong> con más de <strong>35 años de experiencia</strong> en el rubro, te entregamos <strong>calidad</strong> y <strong>respaldo</strong> en la fabricación de piezas de <strong>maquinaria industrial</strong> y <strong>estructuras metálicas</strong>.  
+        Nuestra amplia gama de <strong>repuestos</strong> y <strong>servicios</strong> avalados por años de práctica, nos permite <strong>brindar</strong> las mejores experiencias para nuestros <strong>clientes</strong> en sus labores de Empresa.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Servicios -->
+<section id="servicios" class="py-16 bg-primaryDark">
+  <div class="container mx-auto px-4">
+    <!-- Título -->
+    <h2 class="text-3xl font-semibold text-center text-white uppercase">
+      Servicios
+    </h2>
+    <div class="w-16 h-1 bg-teal-600 mx-auto mt-4 mb-12"></div>
+
+    <!-- Grid de iconos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+      <!-- Servicio 1 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Industria -->
+<svg class="svg-inline--fa fa-industry fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="industry" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M475.115 163.781L336 252.309v-68.28c0-18.916-20.931-30.399-36.885-20.248L160 252.309V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56v400c0 13.255 10.745 24 24 24h464c13.255 0 24-10.745 24-24V184.029c0-18.917-20.931-30.399-36.885-20.248z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Fabricación piezas de maquinaria industrial y estructuras metálicas
+        </p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Gran círculo -->
+<svg class="svg-inline--fa fa-dot-circle fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="dot-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm80 248c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Grandes mecanizados CNC de 1500×3000 mm
+        </p>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Centro -->
+<svg class="svg-inline--fa fa-bullseye fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="bullseye" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 72c101.689 0 184 82.295 184 184 0 101.689-82.295 184-184 184-101.689 0-184-82.295-184-184 0-101.689 82.295-184 184-184m0-64C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 184c35.29 0 64 28.71 64 64s-28.71 64-64 64-64-28.71-64-64 28.71-64 64-64m0-64c-70.692 0-128 57.308-128 128s57.308 128 128 128 128-57.308 128-128-57.308-128-128-128z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Centros de mecanizados CNC
+        </p>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Torno -->
+<svg class="svg-inline--fa fa-circle fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Torno CNC
+        </p>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Estructura liviana -->
+<svg class="svg-inline--fa fa-pallet fa-w-20" aria-hidden="true" data-prefix="fa" data-icon="pallet" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M144 256h352c8.8 0 16-7.2 16-16V16c0-8.8-7.2-16-16-16H384v128l-64-32-64 32V0H144c-8.8 0-16 7.2-16 16v224c0 8.8 7.2 16 16 16zm480 128c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h48v64H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h608c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16h-48v-64h48zm-336 64H128v-64h160v64zm224 0H352v-64h160v64z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Fabricación estructuras livianas
+        </p>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="flex flex-col items-center text-center text-white">
+        <div class="p-4 border-2 border-white rounded-full" style="width: 95px; height: 95px; border: 4px solid #ffff; line-height: 102px;">
+          <!-- Soldadura -->
+<svg class="svg-inline--fa fa-magic fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="magic" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"></path></svg>
+        </div>
+        <p class="mt-4">
+          Soldadura MIG y TIG
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Galería de Trabajos -->
+<section id="works" class="py-16 bg-white" x-data="{ open:false, title:'', desc:'', img:'' }">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-semibold text-center text-gray-800 uppercase">
+      Algunos de nuestros trabajos
+    </h2>
+    <div class="w-16 h-1 bg-teal-600 mx-auto mt-4 mb-12"></div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- PICAPORTE -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='PICAPORTE'; desc='Fabricado en acero de 2.816 mm x 364 mm de ancho, se usa en minería.'; img='img/picaporte.png'"
+      >
+        <img src="img/picaporte.png"
+             alt="PICAPORTE"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            PICAPORTE
+          </div>
+        </div>
+      </div>
+
+      <!-- ESCALERA DE PLATAFORMA -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='ESCALERA DE PLATAFORMA'; desc='Fabricada en fierro con pasamanos y ruedas; se usa en líneas de producción.'; img='img/escalera.png'"
+      >
+        <img src="img/escalera.png"
+             alt="ESCALERA DE PLATAFORMA"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            ESCALERA DE PLATAFORMA
+          </div>
+        </div>
+      </div>
+
+      <!-- CARRO DE ACOPIO -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='CARRO DE ACOPIO'; desc='Confeccionado en fierro y malla metálica con ruedas; se usa en almacenes y sectores productivos.'; img='img/carro.png'"
+      >
+        <img src="img/carro.png"
+             alt="CARRO DE ACOPIO"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            CARRO DE ACOPIO
+          </div>
+        </div>
+      </div>
+
+      <!-- CARRO DE SERVICIO -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='CARRO DE SERVICIO'; desc='Fabricado en fierro tipo mecano, con repisas y ruedas; se usa en restaurantes, hospitales, salas de evento, etc.'; img='img/carro-servicio.png'"
+      >
+        <img src="img/carro-servicio.png"
+             alt="CARRO DE SERVICIO"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            CARRO DE SERVICIO
+          </div>
+        </div>
+      </div>
+
+      <!-- DISPENSADOR METÁLICO -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='DISPENSADOR METÁLICO'; desc='Se usa en malls, servicentros y todo tipo de baño público.'; img='img/dispensador.png'"
+      >
+        <img src="img/dispensador.png"
+             alt="DISPENSADOR METÁLICO"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            DISPENSADOR METÁLICO
+          </div>
+        </div>
+      </div>
+
+      <!-- CINTA TRANSPORTADORA -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='CINTA TRANSPORTADORA'; desc='Estructura de fierro con polines y motor reductor; se usa en líneas de producción.'; img='img/cinta.png'"
+      >
+        <img src="img/cinta.png"
+             alt="CINTA TRANSPORTADORA"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            CINTA TRANSPORTADORA
+          </div>
+        </div>
+      </div>
+
+      <!-- ESTANQUE INOX -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='ESTANQUE INOXIDABLE'; desc='Tambor en acero inoxidable con tapa especial y fittings; se usa en producción de alimentos y bebidas.'; img='img/estanque.png'"
+      >
+        <img src="img/estanque.png"
+             alt="ESTANQUE INOXIDABLE"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            ESTANQUE INOXIDABLE
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVA -->
+      <div
+        class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg"
+        @click="open = true; title='LEVA'; desc='Pieza mecanizada en fierro según medidas solicitadas por el cliente.'; img='img/leva.png'"
+      >
+        <img src="img/leva.png"
+             alt="LEVA"
+             class="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"/>
+        <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div class="w-full text-center text-white py-2 font-medium">
+            LEVA
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+<!-- Modal -->
+<div
+  x-show="open"
+  x-transition.opacity
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+  @click.self="open = false"
+  x-cloak
+>
+  <div class="bg-white rounded-lg overflow-hidden max-w-xl w-full shadow-2xl">
+    <div class="relative">
+      <button
+        @click="open = false"
+        class="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl leading-none"
+      >&times;</button>
+      <img :src="img" :alt="title" class="w-full h-64 object-cover"/>
+    </div>
+    <div class="p-6">
+      <h3 class="text-2xl font-semibold mb-2" x-text="title"></h3>
+      <p class="text-gray-700" x-text="desc"></p>
+    </div>
+  </div>
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========= VIDEO PRESENTACIÓN ========= -->
+<section id="video-empresa" class="py-16 bg-white">
+  <div class="container mx-auto px-4 text-center" x-data="{open:false}">
+    <h2 class="text-3xl font-semibold text-gray-800 uppercase mb-8">
+      Conócenos en 1&nbsp;minuto
+    </h2>
+
+    <!-- Miniatura + botón -->
+    <div class="relative inline-block cursor-pointer" @click="open = true">
+      <img src="img/video.png" alt="Video Comercial MyP"
+           class="rounded-lg shadow-lg w-full max-w-3xl mx-auto">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-20 h-20 text-primaryLight hover:text-primary"
+             fill="currentColor" viewBox="0 0 16 16">
+          <path d="M10.804 8.141L5.278 11.107V5.175l5.526 2.966z"/>
+          <path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v8a2
+          2 0 01-2 2H2a2 2 0 01-2-2V4zm2-1a1 1 0 00-1
+          1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0
+          00-1-1H2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div x-show="open" x-transition.opacity
+         class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50"
+         @click.self="open = false" x-cloak>
+      <div class="w-full max-w-4xl bg-black rounded-lg overflow-hidden">
+        <div class="relative pb-[56.25%]">
+          <!-- Reemplaza el src por tu video de YouTube o mp4 -->
+<video controls autoplay muted
+       class="absolute inset-0 w-full h-full object-cover">
+  <source src="videocomercialmyp2.mp4" type="video/mp4">
+</video>
+
+        </div>
+        <button @click="open = false"
+                class="absolute top-3 right-3 text-white text-3xl leading-none">&times;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======= COTIZACIÓN / MAPA ======= -->
+<section id="cotizacion" class="bg-blue-900 text-white py-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- === Formulario Google Forms === -->
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLScc-GW6CEKXHg-Nmsd-Vs55vltpR_vOtIAZsRj1jwWiAhbLew/formResponse"
+        method="POST"
+        target="_blank"
+        class="space-y-6"
+      >
+        <h2 class="text-3xl font-bold mb-8 lg:mb-4 lg:text-left text-center">
+          Solicita tu Cotización
+        </h2>
+
+        <!-- Nombre + Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            name="entry.1212738865"
+            placeholder="Nombre"
+            required
+            class="w-full px-4 py-3 rounded bg-gray-100 text-gray-800
+                   focus:outline-none focus:ring-2 focus:ring-teal-400"
+          >
+          <input
+            type="email"
+            name="entry.1534780056"
+            placeholder="Correo electrónico"
+            required
+            class="w-full px-4 py-3 rounded bg-gray-100 text-gray-800
+                   focus:outline-none focus:ring-2 focus:ring-teal-400"
+          >
+        </div>
+
+        <!-- Teléfono -->
+        <input
+          type="tel"
+          name="entry.537994965"
+          placeholder="Teléfono"
+          required
+          class="w-full px-4 py-3 rounded bg-gray-100 text-gray-800
+                 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        >
+
+        <!-- Mensaje -->
+        <textarea
+          name="entry.242402865"
+          rows="5"
+          placeholder="Mensaje"
+          required
+          class="w-full px-4 py-3 rounded bg-gray-100 text-gray-800
+                 focus:outline-none focus:ring-2 focus:ring-teal-400"
+        ></textarea>
+
+        <!-- Botón -->
+        <button
+          type="submit"
+          class="w-full md:w-auto px-8 py-3 bg-transparent border border-white
+                 font-semibold rounded hover:bg-white hover:text-blue-900 transition"
+        >
+          ENVIAR
+        </button>
+      </form>
+
+      <!-- === Mapa Google === -->
+      <div class="rounded-lg overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.1901549761697!2d-70.64405258829647!3d-33.493958773261255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662dab693e08573%3A0x415054b3dd78cf4f!2sBrigadier%20de%20La%20Cruz%20676%2C%208900243%20San%20Miguel%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e1!3m2!1sen!2sus!4v1749548307657!5m2!1sen!2sus"
+          width="100%" height="450" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+<!-- ======= FOOTER ======= -->
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+    <!-- Col 1 : Logo -->
+    <div class="flex md:block justify-center">
+      <img src="img/logo-comercialmyp.png"
+           alt="Logo Comercial MyP"
+           class="h-24 w-auto">
+    </div>
+
+    <!-- Col 2 : Descripción -->
+    <div>
+      <h3 class="text-lg font-semibold text-white uppercase mb-4">
+        Comercial MyP Ltda.
+      </h3>
+      <p class="leading-relaxed">
+        Comercial MyP Ltda. se dedica a la fabricación de productos metálicos
+        y repuestos de maquinaria industrial. Además, fabricamos estructuras
+        metálicas y cada proyecto puede realizarse según plano y necesidades
+        específicas del cliente.
+      </p>
+    </div>
+
+    <!-- Col 3 : Información de contacto -->
+    <div>
+      <h3 class="text-lg font-semibold text-white uppercase mb-4">
+        Información
+      </h3>
+
+      <ul class="space-y-2">
+
+        <!-- Dirección -->
+        <li class="flex items-start">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-5 h-5 text-teal-500 flex-shrink-0 mr-2" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 9.75L12 3l9 6.75V21a1 1 0 01-1 1h-5v-7H9v7H4a1 1 0 01-1-1V9.75z"/>
+          </svg>
+          <a href="https://maps.app.goo.gl/xgW7Ht49tLvZvkMD8"
+             target="_blank"
+             class="hover:text-primaryLight">
+            Brigadier de la Cruz 676, San Miguel, Santiago
+          </a>
+        </li>
+
+        <!-- Teléfonos -->
+        <li class="flex items-center">
+
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  class="w-5 h-5 text-teal-500 flex-shrink-0 mr-2" fill="none" viewBox="0 0 50 50" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 14 3.9902344 C 8.4886661 3.9902344 4 8.4789008 4 13.990234 L 4 35.990234 C 4 41.501568 8.4886661 45.990234 14 45.990234 L 36 45.990234 C 41.511334 45.990234 46 41.501568 46 35.990234 L 46 13.990234 C 46 8.4789008 41.511334 3.9902344 36 3.9902344 L 14 3.9902344 z M 14 5.9902344 L 36 5.9902344 C 40.430666 5.9902344 44 9.5595687 44 13.990234 L 44 35.990234 C 44 40.4209 40.430666 43.990234 36 43.990234 L 14 43.990234 C 9.5693339 43.990234 6 40.4209 6 35.990234 L 6 13.990234 C 6 9.5595687 9.5693339 5.9902344 14 5.9902344 z M 18.048828 11.035156 C 16.003504 10.946776 14.45113 11.723922 13.474609 12.658203 C 12.986349 13.125343 12.633832 13.625179 12.392578 14.091797 C 12.151324 14.558415 11.998047 14.943108 11.998047 15.443359 C 11.998047 15.398799 11.987059 15.632684 11.980469 15.904297 C 11.973869 16.17591 11.97507 16.542045 12 16.984375 C 12.04996 17.869036 12.199897 19.065677 12.597656 20.484375 C 13.393174 23.321771 15.184446 27.043821 19.070312 30.929688 C 22.95618 34.815554 26.678014 36.606575 29.515625 37.402344 C 30.93443 37.800228 32.130881 37.949937 33.015625 38 C 33.457997 38.02503 33.822105 38.026091 34.09375 38.019531 C 34.365395 38.012931 34.601049 38.001953 34.556641 38.001953 C 35.056892 38.001953 35.441585 37.848676 35.908203 37.607422 C 36.374821 37.366168 36.874657 37.013651 37.341797 36.525391 C 38.276078 35.54887 39.053222 33.996496 38.964844 31.951172 C 38.922907 30.975693 38.381316 30.111858 37.582031 29.599609 C 36.96435 29.203814 36.005458 28.589415 34.753906 27.789062 C 33.301811 26.861299 31.44451 26.795029 29.929688 27.625 L 30.015625 27.582031 L 28.837891 28.087891 L 28.751953 28.148438 C 28.465693 28.349428 28.111154 28.386664 27.789062 28.251953 C 26.886813 27.874649 25.480985 27.133329 24.173828 25.826172 C 22.866671 24.519015 22.125351 23.113186 21.748047 22.210938 C 21.613336 21.888845 21.650568 21.534307 21.851562 21.248047 L 21.912109 21.162109 L 22.417969 19.984375 L 22.375 20.070312 C 23.204764 18.555868 23.140248 16.698619 22.210938 15.246094 C 21.410584 13.994542 20.796186 13.03565 20.400391 12.417969 C 19.888142 11.618684 19.02431 11.077096 18.048828 11.035156 z M 17.962891 13.033203 C 18.243409 13.045263 18.533045 13.209378 18.716797 13.496094 C 19.113001 14.114413 19.727696 15.07377 20.527344 16.324219 C 21.058033 17.153694 21.09533 18.243821 20.621094 19.109375 L 20.597656 19.152344 L 20.115234 20.279297 L 20.214844 20.097656 C 19.623835 20.939396 19.505055 22.032514 19.902344 22.982422 C 20.35304 24.060173 21.214923 25.695392 22.759766 27.240234 C 24.304608 28.785077 25.939827 29.64696 27.017578 30.097656 C 27.967486 30.494945 29.060604 30.376165 29.902344 29.785156 L 29.720703 29.884766 L 30.847656 29.402344 L 30.890625 29.378906 C 31.755801 28.904877 32.845877 28.944375 33.675781 29.474609 L 33.675781 29.472656 C 34.92623 30.272304 35.885587 30.886999 36.503906 31.283203 C 36.790622 31.466955 36.954736 31.756591 36.966797 32.037109 C 37.032417 33.555785 36.504954 34.506599 35.896484 35.142578 C 35.59225 35.460568 35.262335 35.691348 34.990234 35.832031 C 34.718133 35.972715 34.457889 36.001953 34.556641 36.001953 C 34.373232 36.001953 34.276633 36.013981 34.046875 36.019531 C 33.817117 36.025131 33.509144 36.025436 33.128906 36.003906 C 32.368431 35.960876 31.318757 35.831053 30.054688 35.476562 C 27.526547 34.767581 24.137509 33.168759 20.484375 29.515625 C 16.831241 25.862491 15.232169 22.473167 14.523438 19.945312 C 14.169071 18.681386 14.039037 17.631464 13.996094 16.871094 C 13.974624 16.490908 13.974899 16.18286 13.980469 15.953125 C 13.986069 15.72339 13.998047 15.626918 13.998047 15.443359 C 13.998047 15.542109 14.027287 15.281867 14.167969 15.009766 C 14.308652 14.737665 14.539432 14.40775 14.857422 14.103516 C 15.493401 13.495046 16.444215 12.967581 17.962891 13.033203 z"></path>
+</svg>
+
+
+          <div class="space-y-1">
+            <a href="tel:+562225529212" class="block hover:text-primaryLight">225 529 212</a>
+            <a href="tel:+562225528204" class="block hover:text-primaryLight">225 528 204</a>
+            <a href="tel:+562225533109" class="block hover:text-primaryLight">225 533 109</a>
+            <a href="tel:+562225532453" class="block hover:text-primaryLight">225 532 453</a>
+            <a href="tel:+562225532201" class="block hover:text-primaryLight">225 532 201</a>
+          </div>
+        </li>
+
+        <!-- Email -->
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               class="w-5 h-5 text-teal-500 flex-shrink-0 mr-2" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2-5H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+          </svg>
+          <a href="mailto:ventas@comercialmyp.cl" class="hover:text-primaryLight">
+            ventas@comercialmyp.cl
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="mt-12 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+    © <span x-text="new Date().getFullYear()"></span> Comercial MyP Ltda. | Todos los Derechos Reservados. 2025
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>
