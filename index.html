@@ -21,7 +21,7 @@
   <meta property="og:image:height" content="1000">
   <meta property="og:image:type" content="image/png">
 
-
+  <script src="https://www.google.com/recaptcha/api.js"></script>
 
   <link rel="icon" type="image/png" href="img/logo-comercialmyp.png"/>
 
@@ -572,6 +572,10 @@
 
         <!-- Botón -->
         <button
+          class="g-recaptcha"
+          data-sitekey="6LfMGmorAAAAAFEvSk7-WizDDZifQChXUzwPagem" 
+          data-callback='onSubmit' 
+          data-action='submit'
           type="submit"
           class="w-full md:w-auto px-8 py-3 bg-transparent border border-white
                  font-semibold rounded hover:bg-white hover:text-blue-900 transition"
@@ -579,6 +583,10 @@
           ENVIAR
         </button>
       </form>
+
+
+
+
 
       <!-- === Mapa Google === -->
       <div class="rounded-lg overflow-hidden shadow-lg">
@@ -704,5 +712,14 @@
 
 
   <script src="js/script.js"></script>
+
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
+
+
+
 </body>
 </html>
